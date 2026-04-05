@@ -147,43 +147,13 @@ layout: default
       <p style="margin-top: 5px; font-weight: bold; color: #888; font-size: 11px; text-transform: uppercase;">TEMP</p>
     </div>
   </div>
-  <center id="statsFooter" style="display: none; margin-top: 15px;">
+  <div id="statsFooter" style="text-align: center; display: none; margin-top: 15px;">
     <small style="color: #888; text-transform: uppercase;"> These are specs of my dear <a href="https://www.amazon.de/-/en/dp/B07TD42S27?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1" target="_blank"> 2GB Raspberry Pi 4. </a> I know it's not much, but it's mine. </small>
-  </center>
+  </div>
   </div>
 </div>
 
-<style>
-  .stats-loader-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: rgba(30,30,30,0.4);
-    border-radius: 12px;
-    z-index: 10;
-  }
 
-  .spinner {
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid #64b5f6; /* Loader color */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin-bottom: 10px;
-  }
-
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
