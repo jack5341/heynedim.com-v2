@@ -1,0 +1,253 @@
+---
+---
+
+@import "jekyll-theme-minimal";
+
+// Dark mode styles
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+
+a {
+  color: #64b5f6;
+}
+
+a:hover, a:focus {
+  color: #90caf9;
+}
+
+blockquote {
+  border-left: 1px solid #333;
+}
+
+pre {
+  background: #1e1e1e;
+  border: 1px solid #333;
+}
+
+code, pre {
+  color: #e0e0e0;
+}
+
+th, td {
+  border-bottom: 1px solid #333;
+}
+
+dt {
+  color: #eee;
+}
+
+th {
+  color: #eee;
+}
+
+kbd {
+  background-color: #2c2c2c;
+  border: 1px solid #444;
+  border-bottom-color: #555;
+  box-shadow: inset 0 -1px 0 #555;
+  color: #e0e0e0;
+}
+
+ul.downloads {
+  background: #1e1e1e;
+  border: 1px solid #333;
+}
+
+.downloads li {
+  border-right: 1px solid #333;
+}
+
+.downloads a {
+  color: #bbb;
+}
+
+.downloads a:hover, .downloads a:focus {
+  color: #fff;
+}
+
+.downloads ul a:active {
+  background-color: #2c2c2c;
+}
+
+strong {
+  color: #fff;
+}
+
+.downloads a strong {
+  color: #fff;
+}
+
+hr {
+  background: #333;
+}
+
+@media print, screen and (max-width: 960px) {
+  section {
+    border: 1px solid #333;
+    border-width: 1px 0;
+  }
+}
+
+header ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+header ul li {
+  margin-bottom: 10px;
+}
+
+header ul li a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+h2, h3 {
+  margin-top: 45px !important;
+  margin-bottom: 20px !important;
+}
+
+
+section > div, section > p {
+  margin-bottom: 25px;
+}
+
+/* Retro Dark Mode Theme */
+.retro-window {
+  background-color: #2e2e2e;
+  border: 2px solid;
+  border-color: #777 #000 #000 #777;
+  padding: 2px;
+  color: #e0e0e0;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+  margin-bottom: 25px;
+}
+
+.retro-titlebar {
+  background: linear-gradient(90deg, #000040, #0a4f80);
+  color: #fff;
+  padding: 4px 6px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.retro-title-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.retro-title-text img {
+  image-rendering: pixelated;
+}
+
+.retro-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.retro-button {
+  background: #c0c0c0;
+  color: #000;
+  border: 2px solid;
+  border-color: #fff #555 #555 #fff;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 10px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.retro-button:active {
+  border-color: #555 #fff #fff #555;
+  box-shadow: inset 1px 1px 0px rgba(0,0,0,0.5);
+}
+
+.retro-button:focus {
+  outline: none;
+}
+
+.retro-content {
+  background-color: #1e1e1e;
+  border: 2px solid;
+  border-color: #000 #555 #555 #000;
+  padding: 15px;
+  margin: 2px;
+}
+
+.retro-content a {
+  color: #64b5f6;
+  text-decoration: none;
+}
+
+.retro-content a:hover {
+  text-decoration: underline;
+}
+
+.retro-btn {
+  background: #c0c0c0;
+  color: #000 !important;
+  border: 2px solid;
+  border-color: #dfdfdf #000 #000 #dfdfdf;
+  padding: 4px 12px;
+  display: inline-block;
+  text-decoration: none !important;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+.retro-btn:active {
+  border-color: #000 #dfdfdf #dfdfdf #000;
+  box-shadow: inset 1px 1px 0px rgba(0,0,0,0.5);
+}
+
+/* Sidebar Specific Retro Adjustments */
+header .retro-window {
+  width: 100%;
+  max-width: 270px;
+}
+
+header .retro-content {
+  padding: 10px;
+}
+
+header h1 a {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+header .retro-titlebar {
+  padding: 2px 4px;
+}
+
+header .retro-title-text {
+  font-size: 11px;
+}
+
+/* GLOBAL RETRO FONT OVERRIDE */
+body, h1, h2, h3, h4, h5, h6, p, a, span, li, strong, code, pre, small, div, table, th, td, blockquote, dt, dd, kbd, input, select, textarea, button {
+  font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', 'Geneva', sans-serif !important;
+}
+
+* {
+  font-family: 'MS Sans Serif', 'Tahoma', 'Verdana', 'Geneva', sans-serif !important;
+}

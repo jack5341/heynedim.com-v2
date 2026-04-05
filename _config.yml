@@ -1,0 +1,22 @@
+title: heynedim
+logo: "/assets/img/logo.jpeg"
+description: playing games and doing fun stuff.
+show_downloads: false
+google_analytics: G-2J0P4EKNYZ
+theme: jekyll-theme-minimal
+exclude:
+  - Dockerfile
+  - docker-compose.yml
+  - Gemfile
+  - Gemfile.lock
+  - .jekyll-cache
+  - node_modules
+  - vendor/
+  - README.md
+  - LICENSE
+  - jekyll-theme-minimal.gemspec
+  - script/
+  - docs/
+  - analytics.png
+  - thumbnail.png
+

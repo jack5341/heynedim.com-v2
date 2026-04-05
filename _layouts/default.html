@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% seo %}
+  <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  {% include head-custom.html %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.cdnfonts.com/css/fixedsys-excelsior-301" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <!-- Profile Window -->
+      <div class="retro-window" style="margin-bottom: 20px;">
+        <div class="retro-titlebar">
+          <span class="retro-title-text">
+            <img src="https://win98icons.alexmeub.com/icons/png/user_computer-0.png" width="16" height="16" alt="user">
+            C:\PROFILE.EXE
+          </span>
+          <div class="retro-buttons">
+            <span class="retro-button">_</span>
+            <span class="retro-button">x</span>
+          </div>
+        </div>
+        <div class="retro-content" style="text-align: center; padding: 10px;">
+          <h1><a href="{{ "/" | absolute_url }}" style="font-size: 24px; color: #fff; text-decoration: none;">{{
+              site.title | default: site.github.repository_name }}</a></h1>
+          {% if site.logo %}
+          <img src="{{ site.logo | relative_url }}" alt="Logo"
+            style="margin-top: 10px; max-width: 100%; border: 2px solid #555; display: block; margin-left: auto; margin-right: auto;" />
+          <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px; align-items: center;">
+            <a href="https://drive.google.com/file/d/1t8oAZbL2LZNiFnAaM1oqFa95CWS236PY/view?usp=sharing" target="_blank"
+              class="retro-btn">Resume.pdf</a>
+            <div style="display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; margin-top: 10px;">
+              <a href="https://www.linkedin.com/in/nedim-akar/" target="_blank"><img
+                  src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white&style=for-the-badge"
+                  alt="LinkedIn" style="height: 20px;"></a>
+              <a href="https://x.com/heynedim" target="_blank"><img
+                  src="https://img.shields.io/badge/X-%23000000.svg?logo=X&logoColor=white&style=for-the-badge" alt="X"
+                  style="height: 20px;"></a>
+              <a href="https://github.com/heynedim" target="_blank"><img
+                  src="https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white&style=for-the-badge"
+                  alt="GitHub" style="height: 20px;"></a>
+              <a href="https://steamcommunity.com/id/jack5341/" target="_blank"><img
+                  src="https://img.shields.io/badge/Steam-%23000000.svg?logo=steam&logoColor=white&style=for-the-badge"
+                  alt="Steam" style="height: 20px;"></a>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Consolidated Config Window -->
+      <div class="retro-window">
+        <div class="retro-titlebar">
+          <span class="retro-title-text">
+            <img src="https://win98icons.alexmeub.com/icons/png/settings_gear-0.png" width="16" height="16"
+              alt="scroll">
+            C:\CONFIG.SYS
+          </span>
+          <div class="retro-buttons">
+            <span class="retro-button">_</span>
+            <span class="retro-button">x</span>
+          </div>
+        </div>
+        <div class="retro-content" style="font-size: 13px; line-height: 1.4;">
+          <p style="margin-bottom: 15px;">I'm Nedim, a Backend Engineer building reliable, automated, and scalable
+            cloud-native services. I tinker with Go, Node.js, K8s, and AWS.</p>
+
+          <p style="margin-bottom: 15px; border-top: 1px solid #333; padding-top: 10px;">I'm into REST APIs,
+            event-driven architectures, and domain-driven systems. Focused on observability and production reliability.
+          </p>
+
+          <p style="border-top: 1px solid #333; padding-top: 10px; color: #888; font-size: 12px;">
+            <strong>STACK:</strong> Go, TypeScript, C#, Ruby, K8s, Docker, OTel, distributed tracing.
+          </p>
+        </div>
+      </div>
+    </header>
+    <section>
+
+      {{ content }}
+
+    </section>
+  </div>
+  <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+  <script>
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('.retro-button');
+      if (!btn) return;
+
+      const windowEl = btn.closest('.retro-window');
+      if (!windowEl) return;
+
+      const content = windowEl.querySelector('.retro-content');
+      const text = btn.innerText.trim();
+
+      if (text === 'x') {
+        // CLOSE: Remove from view
+        windowEl.style.display = 'none';
+        checkEasterEgg();
+      } else if (text === '_') {
+        // MINIMIZE: Collapse content
+        if (content) {
+          content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }
+      }
+    });
+
+    // Make window titlebar double-clickable to minimize
+    document.addEventListener('dblclick', function (e) {
+      const titlebar = e.target.closest('.retro-titlebar');
+      if (!titlebar) return;
+
+      const windowEl = titlebar.closest('.retro-window');
+      const content = windowEl.querySelector('.retro-content');
+      if (content) {
+        content.style.display = content.style.display === 'none' ? 'block' : 'none';
+      }
+    });
+
+    function checkEasterEgg() {
+      const allWindows = document.querySelectorAll('.retro-window');
+      const anyVisible = Array.from(allWindows).some(w => {
+        return window.getComputedStyle(w).display !== 'none';
+      });
+
+      if (!anyVisible) {
+        const egg = document.getElementById('easter-egg');
+        if (egg) egg.style.display = 'flex';
+      }
+    }
+
+    // Wrap the existing click listener or update it
+    const originalHandler = document.onclick; // Wait, I'll just update the existing one I added.
+  </script>
+
+  <div id="easter-egg"
+    style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0000AA; z-index: 9999; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: left; font-family: 'Fixedsys Excelsior 3.01', 'Courier New', Courier, monospace !important; padding: 20px; box-sizing: border-box;">
+    <div
+      style="width: 100%; max-width: 900px; padding: 0 40px; font-family: 'Fixedsys Excelsior 3.01', 'Courier New', Courier, monospace !important;">
+      <div style="text-align: center; margin-bottom: 50px;">
+        <span
+          style="background: #AAAAAA; color: #0000AA; padding: 0 15px; font-weight: bold; font-size: 24px; font-family: 'Fixedsys Excelsior 3.01', 'Courier New', Courier, monospace !important;">Windows</span>
+      </div>
+
+      <p
+        style="font-size: 20px; margin-bottom: 30px; font-family: 'Fixedsys Excelsior 3.01', 'Courier New', Courier, monospace !important;">
+        An error has occurred. To continue:</p>
+
+      <p
+        style="font-size: 20px; margin-bottom: 30px; font-family: 'Fixedsys Excelsior 3.01', 'Courier New', Courier, monospace !important;">
+        Press Enter to return to Windows, or</p>
+
+      <p
+        style="font-size: 20px; margin-bottom: 30px; line-height: 1.4; font-family: 'Fixedsys Excelsior 3.01', 'Courier New', Courier, monospace !important;">
+        Press CTRL+ALT+DEL to restart your computer. If you do this,<br>
+        you will lose any unsaved information in all open applications.
+      </p>
+
+      <p
+        style="font-size: 20px; margin-bottom: 60px; font-family: 'Fixedsys Excelsior 3.01', 'Courier New', Courier, monospace !important;">
+        Error: 0E : 016F : BFF9B3D4</p>
+
+      <div style="text-align: center; width: 100%;">
+        <p
+          style="font-size: 20px; font-family: 'Fixedsys Excelsior 3.01', 'Courier New', Courier, monospace !important;">
+          Press any key to continue <span style="animation: cursor-blink 1s infinite;">_</span></p>
+      </div>
+    </div>
+    <style>
+      @keyframes cursor-blink {
+        0% {
+          opacity: 0;
+        }
+
+        50% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </div>
+
+  <script>
+    // Close with any key
+    document.addEventListener('keydown', function () {
+      const egg = document.getElementById('easter-egg');
+      if (egg && egg.style.display === 'flex') {
+        location.reload();
+      }
+    });
+
+    // Also close with click anywhere on the BSOD
+    document.getElementById('easter-egg').addEventListener('click', function () {
+      location.reload();
+    });
+  </script>
+</body>
+
+</html>
