@@ -1,16 +1,33 @@
-name: Deploy to Cloudflare Pages
+name: CI/CD Pipeline
 
 on:
   push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
 
 jobs:
-  build_and_deploy:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+          bundler-cache: true
+
+      - name: Install Dependencies
+        run: script/bootstrap
+
+      - name: Run Tests
+        run: script/cibuild
+
+  deploy:
     name: Build & Deploy
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
